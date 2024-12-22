@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Shared.enums;
 
 namespace Shared
 {
@@ -6,10 +7,10 @@ namespace Shared
     {
         public string ItemId { get; set; }
 
-        public Dictionary<string, int> Prices { get; set; }
+        public Dictionary<VirtualCurrencyType, int> Prices { get; set; }
         public Dictionary<string, int> Items { get; set; }
 
-        public StoreItem(string itemId, string itemName, Dictionary<string, int> prices, Dictionary<string, int> items)
+        public StoreItem(string itemId, string itemName, Dictionary<VirtualCurrencyType, int> prices, Dictionary<string, int> items)
         {
             ItemId = itemId;
             Prices = prices;

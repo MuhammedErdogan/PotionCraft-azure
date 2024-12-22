@@ -5,7 +5,7 @@ using PlayFab.AdminModels;
 using Shared;
 using Newtonsoft.Json;
 
-public class ItemStore
+public class ItemStore : IItemStore
 {
     public async Task<PurchaseItemResult> PurchaseItem(string playFabId, PurchaseItemRequest contextRequest)
     {
@@ -54,7 +54,7 @@ public class ItemStore
 
         foreach (var price in item.Prices)
         {
-            var currencyId = price.Key;
+            var currencyId = price.Key.ToString();
             var requiredAmount = price.Value;
 
             var userCurrency = userInventory.Result.VirtualCurrency
@@ -72,7 +72,7 @@ public class ItemStore
             await adminInstanceApi.SubtractUserVirtualCurrencyAsync(new SubtractUserVirtualCurrencyRequest
             {
                 PlayFabId = playFabId,
-                VirtualCurrency = price.Key,
+                VirtualCurrency = price.Key.ToString(),
                 Amount = price.Value
             });
         }
@@ -80,9 +80,7 @@ public class ItemStore
         // Envantere ekle
         var grantItemsRequest = new PlayFab.AdminModels.GrantItemsToUsersRequest()
         {
-            //PlayFabId = playFabId,
-            //ItemIds = new List<string> { contextRequest.ItemId },
-            //CatalogVersion = PlayFabConst.CATALOG_VERSION
+            
         };
 
         var grantResult = await adminInstanceApi.GrantItemsToUsersAsync(grantItemsRequest);
