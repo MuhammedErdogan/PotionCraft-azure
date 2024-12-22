@@ -1,4 +1,4 @@
-namespace SharedTest
+namespace Shared
 {
     public class HelloWorldRequest
     {

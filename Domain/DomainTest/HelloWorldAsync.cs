@@ -1,6 +1,6 @@
 using PlayFab;
 using PlayFab.AdminModels;
-using SharedTest;
+using Shared;
 
 namespace DomainTest;
 
@@ -8,18 +8,12 @@ public class HelloWorldAsync : IHelloWorldAsync
 {
     public async Task<HelloWorldResult> HelloWorld(string playFabId, HelloWorldRequest contextRequest)
     {
-        //
-        var settings = new PlayFabApiSettings
-        {
-            ProductionEnvironmentUrl = PlayFabSettings.staticSettings.ProductionEnvironmentUrl,
-            DeveloperSecretKey = "1D8OFW49CN9T7JXIH6Y8469GZ1YFDH1PR4NRGMCUEQ5UGNKFAM",
-            TitleId = "8B362",
-        };
+        var settings = PlayFabConst.Settings;
 
-        PlayFabAdminInstanceAPI adminInstanceApi = new PlayFabAdminInstanceAPI(settings);
+        var adminInstanceApi = new PlayFabAdminInstanceAPI(settings);
 
-        GetTitleDataRequest titleDataRequest = new GetTitleDataRequest();
-        GetUserDataRequest userDataRequest = new GetUserDataRequest()
+        var titleDataRequest = new GetTitleDataRequest();
+        var userDataRequest = new GetUserDataRequest()
         {
             PlayFabId = playFabId
         };
@@ -32,8 +26,8 @@ public class HelloWorldAsync : IHelloWorldAsync
         var getTitleDataAsync = await getTitleDataAsyncTask;
         var getUserReadOnlyDataAsync = await getUserReadOnlyDataAsyncTask;
 
-        string testTitleData = string.Empty;
-        string userReadOnlyData = string.Empty;
+        var testTitleData = string.Empty;
+        var userReadOnlyData = string.Empty;
         if (getTitleDataAsync.Result.Data.TryGetValue("Test", out var testTitle))
         {
             testTitleData = testTitle;
@@ -47,7 +41,7 @@ public class HelloWorldAsync : IHelloWorldAsync
 
         userReadOnlyData += "-" + testTitleData + " " + Guid.NewGuid();
 
-        UpdateUserDataRequest updateUserDataRequest = new UpdateUserDataRequest()
+        var updateUserDataRequest = new UpdateUserDataRequest()
         {
             Data = new Dictionary<string, string>()
             {

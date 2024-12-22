@@ -1,4 +1,4 @@
-using SharedTest;
+using Shared;
 
 namespace DomainTest;
 

@@ -1,11 +1,10 @@
-namespace SharedTest
+namespace Shared
 {
     public class HelloWorldResult : BaseResult
     {
-        public string Message { get; set; }
+        public string Message;
         
         public uint DataVersion;
         public string UserReadOnlyData;
-        
     }
 }

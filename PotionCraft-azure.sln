@@ -10,7 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{E5E466
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainTest", "Domain\DomainTest\DomainTest.csproj", "{1E341B9A-70C9-454F-95D0-3692E30CB236}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedTest", "Shared\SharedTest\SharedTest.csproj", "{A47D4CDD-7B83-4CF4-88A6-C6173BE922C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared\Shared.csproj", "{A47D4CDD-7B83-4CF4-88A6-C6173BE922C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Context", "Shared\Context\Context.csproj", "{02095D4F-0DB2-421E-85A8-1117A4681711}"
 EndProject

@@ -30,6 +30,6 @@
     <ItemGroup>
       <ProjectReference Include="..\..\Domain\DomainTest\DomainTest.csproj" />
       <ProjectReference Include="..\..\Shared\Context\Context.csproj" />
-      <ProjectReference Include="..\..\Shared\SharedTest\SharedTest.csproj" />
+      <ProjectReference Include="..\..\Shared\Shared\Shared.csproj" />
     </ItemGroup>
 </Project>
